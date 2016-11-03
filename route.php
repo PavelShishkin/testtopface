@@ -36,8 +36,6 @@ else
 {
     switch($url)
     {
-        case "/":
-            break;
         case "/login":
             $LoginController = new LoginController($_POST);
             break;
