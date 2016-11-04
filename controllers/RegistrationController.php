@@ -32,7 +32,7 @@ class RegistrationController
         {
             $this->errors['name'] = "Введите Имя";
         }
-        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/', $this->name))
+        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/u', $this->name))
         {
             $this->errors['name'] = "Некорректное Имя";
         }
@@ -42,7 +42,7 @@ class RegistrationController
         {
             $this->errors['surname'] = "Введите Фамилию";
         }
-        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/', $this->surname))
+        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/u', $this->surname))
         {
             $this->errors['surname'] = "Некорректная Фамилия";
         }
