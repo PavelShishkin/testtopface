@@ -28,6 +28,10 @@ class LoginController
         }
         elseif(mb_strlen($this->login,'UTF-8') < 4)
         {
+            $this->errors['login'] = "Логин слишком короткий";
+        }
+      	else if(!preg_match('/^[a-zA-Z0-9]{1}[a-zA-Z0-9\_\!\.]*$/', $this->login))
+        {
             $this->errors['login'] = "Некорректный Логин";
         }
         
