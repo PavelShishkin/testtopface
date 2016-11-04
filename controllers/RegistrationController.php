@@ -32,11 +32,19 @@ class RegistrationController
         {
             $this->errors['name'] = "Введите Имя";
         }
+        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/', $this->name))
+        {
+            $this->errors['name'] = "Некорректное Имя";
+        }
         
         //Проверка фамилии
         if($this->surname === "")                              
         {
             $this->errors['surname'] = "Введите Фамилию";
+        }
+        else if(!preg_match('/^[а-яА-ЯёЁa-zA-Z]*$/', $this->surname))
+        {
+            $this->errors['surname'] = "Некорректная Фамилия";
         }
         
         //Проверка логина
@@ -48,6 +56,10 @@ class RegistrationController
         elseif(mb_strlen($this->login,'UTF-8') < 4)
         {
             $this->errors['login'] = "Логин слишком короткий (минимальное количество символов – 4)";
+        }
+        else if(!preg_match('/^[a-zA-Z0-9]{1}[a-zA-Z0-9\_\!\.]*$/', $this->login))
+        {
+            $this->errors['login'] = "Некорректный Логин";
         }
         else if(Users::inspectionLogin($this->login) === true) 
         {
